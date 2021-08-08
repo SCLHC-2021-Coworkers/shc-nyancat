@@ -7,9 +7,9 @@ public class DBConn {
 		try {
 			Class.forName ("org.mariadb.jdbc.Driver");
 			Connection con = DriverManager.getConnection(
-				"jdbc:mariadb://127.0.0.1:3306/test",
+				"jdbc:mariadb://127.0.0.1:33060/test",
 				"root",
-				"Dodge4college!");
+				"1234");
 			con.close();
 			System.out.println("Successfully connected to DB");
 		} catch (Exception e) {
