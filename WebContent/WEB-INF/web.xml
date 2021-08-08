@@ -6,13 +6,18 @@
     <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class> 
     <init-param> 
       <param-name>jersey.config.server.provider.packages</param-name> 
-      <param-value>com.smcm</param-value> 
+      <param-value>com.smcm.services</param-value> 
     </init-param> 
   </servlet>
   <servlet-mapping> 
     <servlet-name>SMCM API Server</servlet-name> 
     <url-pattern>/api/*</url-pattern> 
   </servlet-mapping>
+  <listener>
+  	<listener-class>
+  		com.smcm.OnInitListener
+  	</listener-class>
+  </listener>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
