@@ -12,14 +12,24 @@ public class PropertyReader {
 	public static void load(ServletContext sc) {
 		try {
 			props.load(sc.getResourceAsStream("/META-INF/env.properties"));
-			System.out.println("env.properties loaded successfully");
+			if (isDev()) {
+				System.out.println("env.properties loaded successfully");
+			}
 		} catch (FileNotFoundException e) {
-			System.out.println("env.properties file does not exist");
+			if (isDev()) {
+				System.out.println("env.properties file does not exist");
+			}
 			System.exit(-1);
 		} catch (IOException e) {
-			System.out.println("Cannot read env.properties file");
+			if (isDev()) {
+				System.out.println("Cannot read env.properties file");
+			}
 			System.exit(-1);
 		}
+	}
+
+	public static boolean isDev() {
+		return props.getProperty("is.development").equals("true");
 	}
 
 	public static String dbUrl() {

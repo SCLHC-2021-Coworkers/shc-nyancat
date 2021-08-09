@@ -13,7 +13,7 @@ public class OnInitListener implements ServletContextListener {
 	@Override
 	public void contextInitialized(ServletContextEvent sce) {
 		PropertyReader.load(sce.getServletContext());
-		DBConn dbConn = new DBConn();
+		DBConn.initPool();
 	}
 
 }

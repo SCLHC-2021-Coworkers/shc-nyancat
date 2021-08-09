@@ -1,10 +1,14 @@
 package com.smcm.models;
 
+import com.smcm.PropertyReader;
+
 public class Model {
 	private final String dbName;
 
 	public Model() {
-		this.dbName = System.getenv("DB_NAME");
+		String[] urlStrs = PropertyReader.dbUrl().split("/");
+		this.dbName = urlStrs[urlStrs.length - 1];
+		System.out.println(this.dbName);
 	}
 
 	public boolean isTableExists(String tableName) {
