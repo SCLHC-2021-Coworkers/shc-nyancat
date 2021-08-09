@@ -1,17 +1,19 @@
 package com.smcm;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
+import javax.servlet.ServletContext;
+
 public class PropertyReader {
 	private static Properties props = new Properties();
 
-	public static void load() {
+	public static void load(ServletContext sc) {
 		try {
-			props.load(new FileInputStream("../../env.properties"));
+			props.load(sc.getResourceAsStream("/META-INF/env.properties"));
+			System.out.println("env.properties loaded successfully");
+			System.out.println(dbDriverClassName());
 		} catch (FileNotFoundException e) {
 			System.out.println("env.properties file does not exist");
 			System.exit(-1);
