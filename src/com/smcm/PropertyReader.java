@@ -13,7 +13,6 @@ public class PropertyReader {
 		try {
 			props.load(sc.getResourceAsStream("/META-INF/env.properties"));
 			System.out.println("env.properties loaded successfully");
-			System.out.println(dbDriverClassName());
 		} catch (FileNotFoundException e) {
 			System.out.println("env.properties file does not exist");
 			System.exit(-1);
@@ -21,10 +20,6 @@ public class PropertyReader {
 			System.out.println("Cannot read env.properties file");
 			System.exit(-1);
 		}
-	}
-
-	public static String dbDriverClassName() {
-		return props.getProperty("db.driver.class.name");
 	}
 
 	public static String dbUrl() {

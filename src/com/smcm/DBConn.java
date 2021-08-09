@@ -14,7 +14,7 @@ public class DBConn {
 		ResultSet rs = null;
 		try {
 			ds = new BasicDataSource();
-			ds.setDriverClassName(PropertyReader.dbDriverClassName());
+			ds.setDriverClassName("org.mariadb.jdbc.Driver");
 			ds.setUrl(PropertyReader.dbUrl());
 			ds.setUsername(PropertyReader.dbUser());
 			ds.setPassword(PropertyReader.dbPassword());
